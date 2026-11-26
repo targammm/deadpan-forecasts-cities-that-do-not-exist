@@ -50,12 +50,8 @@ def main(argv):
     out_dir = os.path.dirname(out_path)
     if out_dir:
         os.makedirs(out_dir, exist_ok=True)
-        # The grader collects /output as another user: the folder must
-        # be readable by everyone, not just the user running this.
-        os.chmod(out_dir, 0o755)
     with open(out_path, "w", encoding="utf-8", newline="") as f:
         f.write(line)
-    os.chmod(out_path, 0o644)
     print("wrote %d characters to %s" % (len(line), out_path))
     print(line)
     return 0
